@@ -446,7 +446,8 @@ body {
 /* Team members */
 .team-members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(220px, 260px));
+    justify-content: center;
     gap: 1.5rem;
     max-width: 980px;
     margin: 0 auto;
@@ -489,6 +490,31 @@ body {
 
 .team-member-card a:hover {
     text-decoration: underline;
+}
+
+.team-member-card-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    align-items: start;
+    text-align: left;
+}
+
+.team-member-card-featured .team-member-photo {
+    margin: 0;
+}
+
+.team-member-role {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+}
+
+.team-member-bio {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.55;
 }
 
 /* Publications — plain bibliography style (no rules between entries) */
@@ -596,6 +622,12 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 980px) {
+    .team-members-grid {
+        grid-template-columns: repeat(2, minmax(220px, 260px));
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -623,6 +655,19 @@ body {
     }
 
     .research-overview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member-card-featured {
+        display: block;
+        text-align: center;
+    }
+
+    .team-member-card-featured .team-member-photo {
+        margin: 0 auto 0.85rem;
+    }
+
+    .team-members-grid {
         grid-template-columns: 1fr;
     }
 }
